@@ -5,7 +5,7 @@
  */
 
 package interfaz;
-
+import clases.Persona;
 /**
  *
  * @author yescobar7
@@ -15,6 +15,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    Persona v[]= new Persona[5];
+    int conta=0;
     public Principal() {
         initComponents();
     }
@@ -76,14 +78,22 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", 0, 0, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cdmGuardar.setBackground(new java.awt.Color(255, 255, 255));
         cdmGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cdmGuardar.setText("GUARDAR");
+        cdmGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cdmGuardarActionPerformed(evt);
+            }
+        });
         jPanel4.add(cdmGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 100, -1));
 
+        cmdBorrar.setBackground(new java.awt.Color(255, 255, 255));
         cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdBorrar.setText("MOSTRAR");
         jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 100, -1));
 
+        cmdLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         cmdLimpiar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdLimpiar.setText("LIMPIAR");
         jPanel4.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 100, -1));
@@ -116,6 +126,23 @@ public class Principal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(690, 604));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cdmGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdmGuardarActionPerformed
+    Persona p;
+    long identificacion;
+    String primer_nombre;
+    String primer_apellido;
+    identificacion = Long.parseLong(txtIdentifiacion.getText());
+    primer_nombre= txtPrimerNombre.getText();
+    primer_apellido= txtPrimerApellido.getText();
+    
+    p = new Persona(identificacion, primer_nombre, primer_apellido);
+    v[conta]=p;
+    conta++;
+    
+    
+    
+    }//GEN-LAST:event_cdmGuardarActionPerformed
 
     /**
      * @param args the command line arguments
